@@ -32,7 +32,7 @@ const checkWin = ()=>{
             (boxtext[e[0]].innerText !== "")
         ){
             let winner = boxtext[e[0]].innerText;
-            document.querySelector('.info').innerText = winner + " Won!!";
+            document.querySelector('.info').innerText = winner + " Won!!!🥳";
             isgameover = true;
 
             // Show and play winner video
