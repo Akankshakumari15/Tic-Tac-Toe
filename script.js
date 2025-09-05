@@ -8,7 +8,7 @@ let isgameover = false;
 
 // Function to change the turn
 const changeTurn = ()=>{
-    return turn === "X"? "0": "X"
+    return turn === "X" ? "O" : "X";
 }
 
 // Function to check for a win
@@ -29,7 +29,7 @@ const checkWin = ()=>{
            (boxtext[e[2]].innerText === boxtext[e[1]].innerText) && 
            (boxtext[e[0]].innerText !== "") ){
             
-            document.querySelector('.info').innerText = boxtext[e[0]].innerText + " Won"
+            document.querySelector('.info').innerText = boxtext[e[0]].innerText + " Won!!"
             isgameover = true
 
             // Show and play winner video
@@ -55,6 +55,11 @@ Array.from(boxes).forEach(element =>{
     element.addEventListener('click', ()=>{
         if(boxtext.innerText === '' && !isgameover){
             boxtext.innerText = turn;
+
+            // Add color class (X or O)
+            boxtext.classList.remove("X", "O");
+            boxtext.classList.add(turn);
+
             turn = changeTurn();
             audioTurn.play();
             checkWin();
@@ -69,7 +74,8 @@ Array.from(boxes).forEach(element =>{
 reset.addEventListener('click', ()=>{
     let boxtexts = document.querySelectorAll('.boxtext');
     Array.from(boxtexts).forEach(element => {
-        element.innerText = ""
+        element.innerText = "";
+        element.classList.remove("X", "O"); // clear colors
     });
     turn = "X"; 
     isgameover = false
