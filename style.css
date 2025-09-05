@@ -180,3 +180,18 @@ nav ul {
     /* blue for O */
     text-shadow: 0 0 2px rgba(69, 123, 157, 0.7);
 }
+
+
+.line {
+    position: absolute;
+    height: 4px;
+    flex-wrap: wrap;
+    width: 0; /* hidden until win */
+    background-color: #911d91; /* default */
+    top: 0;
+    left: 0;
+    transform-origin: center;
+    transition: width 0.3s ease-in-out;
+    z-index: 2; /* ensure it's above the boxes */
+}
+
